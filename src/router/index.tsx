@@ -2,6 +2,7 @@ import Home from '@/views/Home'
 import Page1 from '@/views/Page1'
 import Page2 from '@/views/Page2'
 import Login from '@/views/Login'
+import Test from '@/views/Test'
 import {Navigate} from 'react-router-dom'
 const routes = [
     {
@@ -10,7 +11,7 @@ const routes = [
     },
     {
         path: '/login',
-        element:<Login/>
+        element:<Test/>
     },
     {
         path: '/',

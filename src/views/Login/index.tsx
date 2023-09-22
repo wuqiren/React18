@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { Button, Input,Space,message } from 'antd'
 import {  UserOutlined } from '@ant-design/icons'
 import { captchaAPI, loginAPI } from '@/request/api'
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import useAdd  from '@/hooks'
 import styles from './login.module.scss'
 const Login = () => {
     const navigate = useNavigate()
@@ -44,9 +45,12 @@ const Login = () => {
     }
     const [userinfo, setUserInfo] = useState <string|undefined>()
     const [password,setPassword] = useState<string|undefined>()
-    const [cache,setCache] = useState<string|undefined>()
+    const [cache, setCache] = useState<string | undefined>()
+    
+    const [number] =useAdd()
     return <div>
         <div className={styles.form}>
+            {number}
              <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
                 <Input onChange={(e) => {
                     setUserInfo(e.target.value)
