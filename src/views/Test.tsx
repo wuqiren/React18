@@ -1,5 +1,5 @@
-import {useState,useEffect} from 'react';
-import {usePrevious,useUpdate} from '@/hooks/index'
+import {useState,useCallback} from 'react';
+import {usePrevious,useDebounce} from '@/hooks/index'
 
 
 const App: React.FC = () => {
@@ -7,11 +7,19 @@ const App: React.FC = () => {
     const [count, setCount] = useState(0);
 
     const previous = usePrevious(count)
+  const fun = useCallback(() => {
+    setCount(count => count + 1);
+  }, []);
+
+  const run = useDebounce(fun, 1000);
+
   return (
     <div>
-          新值{count}
-          <div>老数值:{previous}</div>
-          <button onClick={()=>{setCount(e=>e+1)}}>增加</button>
+          
+
+            <button type="button" onClick={() => { run(); }}>
+        增加 {count}
+      </button>
     </div>
   );
 };
