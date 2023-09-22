@@ -1,12 +1,17 @@
-import React from 'react';
-import {useCountDown} from '@/hooks/index'
+import {useState,useEffect} from 'react';
+import {usePrevious,useUpdate} from '@/hooks/index'
 
 
 const App: React.FC = () => {
-  const [number] =useCountDown({maxNumber:10,fn:()=>{console.log('我曹')}})
+  
+    const [count, setCount] = useState(0);
+
+    const previous = usePrevious(count)
   return (
     <div>
-        <div>{number}</div>
+          新值{count}
+          <div>老数值:{previous}</div>
+          <button onClick={()=>{setCount(e=>e+1)}}>增加</button>
     </div>
   );
 };

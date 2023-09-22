@@ -1,3 +1,7 @@
+/**
+ * 倒计时的自定义Hooks
+ * 倒计时件一到执行对应的函数
+*/
 import { useState, useEffect } from 'react'
 
 type CountDown = {
@@ -16,7 +20,7 @@ const useCountDown= ({maxNumber,fn}:CountDown)=>{
         } else {
             fn()
         }
-    }, [number])
+    }, [number,fn])
     return [number]
 }
 export default useCountDown
