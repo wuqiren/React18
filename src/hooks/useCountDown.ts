@@ -20,7 +20,11 @@ const useCountDown= ({maxNumber,fn}:CountDown)=>{
         } else {
             fn()
         }
+  
     }, [number,fn])
     return [number]
 }
 export default useCountDown
+
+
+
